@@ -3,6 +3,12 @@
   hosts: all
   become: true
   tasks:
+  vars:
+    sysctl_config:
+      net.bridge.bridge-nf-call-ip6tables: 1
+      net.bridge.bridge-nf-call-iptables: 1
+      net.ipv4.ip_forward: 1
+
   - name: Play started
     command: "date"
     register: start
@@ -13,7 +19,12 @@
       state: present
 
   - name: Remove previous repo files
-    ansible.builtin.shell: "rm -rf /etc/yum.repos.d/kubernetes.repo"
+    ansible.builtin.shell: "rm -rf /etc/yum.repos.d/kubernetes.repo;rm -rf /etc/yum.repos.d/docker-ce.repo"
+
+  - name: Add Docker repo
+    get_url:
+      url: https://download.docker.com/linux/centos/docker-ce.repo
+      dest: /etc/yum.repos.d/docer-ce.repo
 
   
   - name: Add yum repo
@@ -62,6 +73,24 @@
       - docker*
       - kubeadm
 #    when: inventory_hostname in groups['kubenode']
+
+
+  
+  - name: Ensure br_netfilter is enabled.
+    modprobe:
+      name: br_netfilter
+      state: present
+
+  - name: Chnage sysctl settings for kubeernetes
+    sysctl:
+      name: '{{ item.key }}'
+      value: '{{ item.value }}'
+      sysctl_file: /etc/sysctl.d/kubernetes.conf
+      sysctl_set: yes
+      state: present
+      reload: yes
+    with_dict: '{{ sysctl_config }}'
+
 
   - name: Install Docker and Kubernetes
     yum: 
