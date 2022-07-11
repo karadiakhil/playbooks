@@ -2,12 +2,13 @@
 - name: configure Kubernetes on 4 node cluster, 1 control-node and 3 worker-node. 
   hosts: all
   become: true
-  tasks:
   vars:
     sysctl_config:
       net.bridge.bridge-nf-call-ip6tables: 1
       net.bridge.bridge-nf-call-iptables: 1
       net.ipv4.ip_forward: 1
+
+  tasks:
 
   - name: Play started
     command: "date"
