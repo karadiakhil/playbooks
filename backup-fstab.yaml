@@ -1,0 +1,4 @@
+- name: 'Backup /etc/fstab from {{ inventory_hostname }}'
+  archive: 
+     path: '/etc/'
+     dest: "/tmp/fstab-{{ inventory_hostname }}.tgz"

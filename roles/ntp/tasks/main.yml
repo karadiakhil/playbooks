@@ -1,0 +1,18 @@
+---
+- name: Make Sure chriny is there
+  package: 
+    name: chrony
+    state: present
+- name: ntp configuration
+  template:
+    src: chrony.j2
+    dest: /etc/chrony.conf
+    mode: 0644
+    owner: root
+  register : output
+  notify: 'Restart chronyd' 
+
+
+- name: Set timezone 
+  timezone: 
+    name: "Europe/Dublin"

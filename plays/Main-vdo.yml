@@ -1,0 +1,14 @@
+---
+- name: VDO
+  hosts: worker-1
+  gather_facts: false
+  tasks: 
+  - import_tasks: VDO.yaml
+  - import_tasks: vdo-start.yml
+  - import_tasks: create-vdo.yml
+  - import_tasks: foramt-vdo.yml
+  - import_tasks: mount-vdo.yml
+  - import_tasks: mount-path.yml
+
+
+

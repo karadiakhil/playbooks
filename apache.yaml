@@ -1,0 +1,19 @@
+- name: "Manage Apache webserver Deployment"
+  hosts: worker,master
+  become: true
+  gather_facts: false
+  tasks:
+    - name: "Install the Apache server"
+      package: 
+        name: httpd
+        state: present
+    - name: "Ensure wer server is running and enabled"
+      service: 
+        name: httpd
+        state: started
+        enabled: true
+    - name: "Copy Web Content"
+      copy: 
+        dest: '/var/www/html/index.html'
+        content: "This is a test"
+        

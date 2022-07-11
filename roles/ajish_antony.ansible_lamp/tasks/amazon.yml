@@ -1,0 +1,84 @@
+---
+
+- name: "Updating All The Packages"
+  yum:
+    name:
+      "*"
+    state: latest
+
+- name: "Apache Web Server Installation"
+  yum:
+    name: httpd
+    state: latest
+  notify:
+    - restart-httpd
+
+- name: "Creating httpd.conf From template"
+  template:
+    src: httpd.conf.tmpl
+    dest: "/etc/httpd/conf/httpd.conf"
+  notify:
+    - restart-httpd
+
+- name: "Creating Virtualhost From template"
+  template:
+    src: virtualhost.conf.tmpl
+    dest: "/etc/httpd/conf.d/{{domain_name}}.conf"
+  notify:
+    - restart-httpd
+
+- name: "Document Root Creation"
+  file:
+    path: "/var/www/html/{{domain_name}}"
+    state: directory
+    owner: "{{httpd_user}}"
+    group: "{{httpd_group}}"
+  notify:
+    - restart-httpd
+
+- name: "PHP Package Installation"
+  shell: amazon-linux-extras install php7.4 -y
+
+- name: "Creation Of test.php and test.html"
+  copy:
+    src: "{{item}}"
+    dest: "/var/www/html/{{domain_name}}"
+    owner: "{{httpd_user}}"
+    group: "{{httpd_group}}"
+  with_items:
+    - test.html
+    - test.php
+  notify:
+    - restart-httpd
+
+- name: "MariaDB Package Installation"
+  yum:
+    name:
+      - mariadb-server
+      - MySQL-python
+    state: latest
+  register: db
+
+- name: "Restarting/Enabling The Service"
+  service:
+    name: mariadb
+    state: restarted
+    enabled: true
+  when: db.changed
+
+- name: "Root Password Creation for MariaDB"
+  ignore_errors: true
+  mysql_user:
+    login_user: "root"
+    login_password: ""
+    user: "root"
+    password: "{{root_password}}"
+    host_all: true
+
+- name: "Removal Of Anonymous User"
+  mysql_user:
+    login_user: "root"
+    login_password: "{{root_password}}"
+    user: ""
+    state: absent
+    host_all: true

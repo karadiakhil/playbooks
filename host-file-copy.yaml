@@ -1,0 +1,12 @@
+---
+- name: Copy hosts file to all nodes
+  hosts: all
+  tasks:
+    - import_tasks: backup-fstab.yaml 
+    - name: Copy host files from Master-node to all worker and drain nodes
+      template:
+        src: /root/jinja/hosts-copy.j2
+        dest: /etc/hosts
+    - name: show templating results with different variable start and end string
+      debug:
+        msg: "{{ lookup('template', '/root/jinja/hosts-copy.j2') }}"

@@ -1,0 +1,208 @@
+---
+- name: configure Kubernetes on 4 node cluster, 1 control-node and 3 worker-node. 
+  hosts: all
+  become: true
+  tasks:
+  - name: Play started
+    command: "date"
+    register: start
+
+  - name: Install dependencies for Docker
+    yum:
+      name: yum-utils
+      state: present
+
+  - name: Remove previous repo files
+    ansible.builtin.shell: "rm -rf /etc/yum.repos.d/kubernetes.repo"
+
+  
+  - name: Add yum repo
+    yum_repository:
+      name: kubernetes
+      baseurl: https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64
+      enabled: yes
+      gpgcheck: no
+      repo_gpgcheck: no
+      description: "Yum respository for kubernetes"
+
+  - name: checking if any existing Cluster on System"
+    package_facts: 
+      manager: auto
+
+  - name: Searching for Prevoius Kubernetes cluster files if any Nodes   
+    stat: 
+      path: "/etc/kubernetes/manifests/"
+    register: kube_dir
+    
+
+  - name: Reset the exisiting cluster
+    command: "kubeadm reset --force"
+    when: "'kubeadm' in ansible_facts.packages and  kube_dir.stat.exists"
+    ignore_errors: True 
+  
+  - name: Remove kubeadm files
+    command: "rm -rf $HOME/.kube/config file"
+ 
+  - name: Removing exisiting POD networks
+    command: "rm -rf /etc/cni/net.d/"
+      
+
+
+
+
+  - name: Yum update_cache
+    shell: "yum clean all;yum-complete-transaction --cleanup-only"
+  
+  - name: Remove Docker and kubernetes from worker and drain if exists 
+    yum: 
+      name: "{{ packages }}"
+      state: absent 
+    vars:
+      packages:
+      - docker*
+      - kubeadm
+#    when: inventory_hostname in groups['kubenode']
+
+  - name: Install Docker and Kubernetes
+    yum: 
+      name: "{{ packages }}"
+      state: present
+    vars:
+      packages:
+      - docker
+      - containerd.io
+      - kubeadm
+  
+  - name: Enable Docker and kubernets services
+    service:
+      name: "{{ item }}"
+      enabled: yes
+    with_items:
+      - docker
+      - kubelet
+
+  - name: Daemon-reload 
+    command: "systemctl daemon-reload"
+
+  - name: Remove Config file from containerd.io
+    command: "rm -rf /etc/containerd/config.toml"
+  
+  - name: restart containerd
+    ansible.builtin.service:
+      name: containerd
+      state: restarted
+      
+
+
+  - name: Remove swapfile from /etc/fstab
+    mount:
+      name: "{{ item }}"
+      fstype: swap
+      state: absent
+    with_items:
+      - swap
+      - none
+
+  - name: Disable swap
+    command: swapoff -a
+    when: ansible_swaptotal_mb > 0
+
+  - name: Disable IPtables
+    command: iptables -F
+
+  - name: Disable SELinux
+    ansible.builtin.selinux:
+      state: disabled
+ 
+
+##########################################
+
+#  - name: Downgrade the kubeadm
+#    yum:
+#      name: kubeadm-1.23.7
+#      update_cache: yes
+#      allow_downgrade: true
+  
+#  - name: Downgrade the kubelet
+#    yum:
+#      name: kubelet-1.23.7
+#      update_cache: yes
+#      allow_downgrade: true
+
+#  - name: Downgrade the kubectl
+#    yum:
+#      name: kubectl-1.23.7
+#      update_cache: yes
+#      allow_downgrade: true
+  
+  
+
+#  - name: Restart kubelet
+#    service:
+#      name: kubelet
+#      daemon_reload: yes
+#      state: restarted
+####################################
+  - name: Initialize the Kubernetes cluster using kubeadm command
+    when: inventory_hostname in groups['master']
+    command: "kubeadm init" 
+
+  - name: Set up Kubernetes for root user
+    command: "{{ item }}"
+    when: inventory_hostname in groups['master']
+    with_items:
+    - "mkdir -p $HOME/.kube"
+    - "cp -i /etc/kubernetes/admin.conf $HOME/.kube/config"
+    - "chown -R root:root $HOME/.kube/config"
+
+
+  - name: configure pod network
+
+    when: inventory_hostname in groups['master'] 
+    shell: kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
+
+  - name: Retrieve Kubernetes join command that is used to join worker node(s)
+    become: false
+    when: inventory_hostname in groups['master']
+    command: kubeadm token create --print-join-command
+    register: join_command
+
+
+
+  - name: Attach kubeadm join command to a file on Ansible control node
+    when: inventory_hostname in groups['master']
+    local_action: "copy content='{{ join_command.stdout_lines[0] }}' dest=join-command"
+
+  - name: Copy the join-command file created above to worker node
+    when: inventory_hostname in groups['kubenode']
+    copy: src=join-command dest=/tmp/kubeadm-join.sh mode=0777
+
+  - name: Join the worker node to cluster
+    when: inventory_hostname in groups['kubenode']
+    command: sh /tmp/kubeadm-join.sh
+  
+   
+  - name: Initialize of Kubernetes cluster started............
+    command: "sleep 15"
+
+
+    
+  - name: Setting roles to nodes in cluster
+    shell: "kubectl label node  {{ groups['worker'] | join(' ') }}  node-role.kubernetes.io/worker-node=worker-node;sleep 45"
+    
+  - name: Kubernetes cluster is Ready!
+    command: "kubectl get nodes"
+    when: inventory_hostname in groups['master']
+    register: output
+  - name: play ended
+    command: "date"
+    register: end
+  - debug: 
+      msg: "{{ output.stdout_lines }}"   
+    when: inventory_hostname in groups['master']
+  - debug: 
+      msg: Play started at "{{ start.stdout_lines }}"
+    when: inventory_hostname in groups['master']
+  - debug: 
+      msg: play ended at "{{ end.stdout_lines | join (' ') }}"
+    when: inventory_hostname in groups['master']

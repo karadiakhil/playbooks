@@ -1,0 +1,6 @@
+---
+- name: Install jenkins on node
+  hosts: master
+  tasks:
+  - import_role:
+      name: jenkins
