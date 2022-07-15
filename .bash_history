@@ -206,3 +206,12 @@ ls -lrth
 tar -xvf deployment.tgz 
 ls -lrth
 cat Deployment.sh 
+cls -lrth
+ls -lrth
+cd roles/
+ls -lth
+cd ..
+git add .
+git commit -m "Added new role"
+git push -u origin master
+exit
