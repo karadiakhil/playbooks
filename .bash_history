@@ -242,3 +242,9 @@ ls -lrth
 tar -tvf deployment.tgz 
 git push -u origin master
 exit
+git add .
+git add --all
+git add .
+git commit -m "Added new role"
+git push -u origin master
+exit
