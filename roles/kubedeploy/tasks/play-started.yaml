@@ -1,0 +1,5 @@
+---
+- name: Play started
+  command: "date"
+  register: start
+

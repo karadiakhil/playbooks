@@ -149,3 +149,60 @@ vi /etc/ssh/sshd_config
 systemctl restart sshd 
 ssh -tt -o StrictHostKeyChecking=no root@192.168.147.12
 exit
+ssh -tt -o StrictHostKeyChecking=no PasswordAuthentication yes root@192.168.147.12
+ssh -tt -o StrictHostKeyChecking=no PasswordAuthentication=yes root@192.168.147.12
+ssh -tt -o StrictHostKeyChecking=no PasswordAuthentication yes root@192.168.147.12
+ssh master-node
+ssh -tt -o StrictHostKeyChecking=no root@192.168.147.12
+su jenkins
+ssh -tt -o StrictHostKeyChecking=no root@192.168.147.12
+ssh -tt -o StrictHostKeyChecking=no root@192.168.147.12 'tar -xvf /root/playbooks/kube.tgz'
+ssh -tt -o StrictHostKeyChecking=no root@192.168.147.12 'sh /root/playbooks/; sh kube.sh'
+ls -lrth
+cd /
+ls -lrth
+cp -pr deployment.tgz /root/
+ls -lrth
+cd /
+ls -lrth
+cd
+ls -lrth
+git add.
+git add .
+git commit -m "push deployments file"
+git push -u origin master
+ssh -tt -o StrictHostKeyChecking=no root@192.168.147.12 'tar -xvf /root/playbooks/kube.tgz'
+ssh -tt -o StrictHostKeyChecking=no root@192.168.147.12 'tar -xvf /root/kube/deployment.tgz'
+ls -lrth
+pwd
+date
+ls -lrth
+date
+git add .
+git commit -m "push deployments file"
+git push -u origin master
+git add .
+git commit -m "push deployments file"
+git push -u origin master
+git add .
+git commit -m "push deployments file"
+git push -u origin master
+git add .
+git push -u origin master
+git commit -m "push deployments file"
+git push -u origin master
+ls -lrth
+git add .
+git commint -m "modified Deployment Script"
+git commit -m "modified Deployment Script"
+git push -u origin master
+ls -lrth
+tar -xvf deployment.tgz 
+cat kube/Deployment.sh 
+pwd
+ls -lrth
+cd kube
+ls -lrth
+tar -xvf deployment.tgz 
+ls -lrth
+cat Deployment.sh 

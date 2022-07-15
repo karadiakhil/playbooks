@@ -1,0 +1,13 @@
+---
+# tasks file for kubedeploy
+#
+  - name: 
+         
+ 
+    include_tasks: "{{ item }}" 
+    loop:
+    - play-started.yaml
+    - remove-existing-setup.yaml
+    - install-kubernetes-cluster.yaml
+    - end-play.yaml
+
