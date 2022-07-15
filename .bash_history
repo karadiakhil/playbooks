@@ -63,3 +63,89 @@ git push -u origin
 git push -u origin master
 git pull -u origin master
 git push -u origin master
+exit
+ls -lrth
+vim kube.sh
+vi kube.sh
+git push -u origin master
+kube commit -m "push kube script"
+git commit -m "push kube script"
+git add .
+git commit -m "push kube script"
+git push -u origin master
+cd plays/
+ls lrth
+ls -lrth
+cd
+ls -lrth
+vim kube-setup.yaml 
+vi kube-setup.yaml 
+git commit -m "update kube script"
+git commit -a
+git add .
+git commit -m "update kube script"
+git push -u origin master
+ls -lrth
+cd
+pwd
+cd /root/
+git add .
+git commit -m "update kube script"
+git push -u origin master
+ls -lrth
+vim kube.sh 
+vi kube.sh 
+vim kube-setup.yaml 
+vi kube-setup.yaml 
+git commit -m "update kube script"
+git push -u origin master
+git add .
+git commit -m "update kube script"
+git push -u origin master
+sh kube.sh 
+sh -x kube.sh 
+vim kube.sh 
+vi kube.sh 
+iptables -L
+iptables -F
+sestatus 
+setenforce 0
+vim kube.sh 
+vi kube.sh 
+which git
+vim /etc/sysconfig/selinux 
+vi /etc/sysconfig/selinux 
+sestatus 
+setenforce 0
+ls -lrth
+vim deploy.sh
+vi deploy.sh
+tar -czvf kube.tgz *
+ls -lrth
+git add *
+git commit -m "update kube script"
+git push -u origin master
+git pull 
+git pull master
+git pull origin master
+git push -u origin master
+ls -lrth
+rm -rf /var/lib/jenkins/secret/
+exit
+systemctl status jenkins
+systemctl start jenkins
+iptables -L
+iptables -F
+cd /var/lib/jenkins/workspace/Deploy-kubernetes-cluster/
+ls -lrth
+ssh-keygen 
+ssh-copy-id -i /root/.ssh/id_rsa.pub root@192.168.147.12
+ssh master-node
+ssh 192.168.147.12
+cd
+ssh -tt -o StrictHostKeyChecking=no root@192.168.147.12
+vim /etc/ssh/sshd_config 
+vi /etc/ssh/sshd_config 
+systemctl restart sshd 
+ssh -tt -o StrictHostKeyChecking=no root@192.168.147.12
+exit
