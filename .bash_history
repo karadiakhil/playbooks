@@ -215,3 +215,7 @@ git add .
 git commit -m "Added new role"
 git push -u origin master
 exit
+git add .
+git commit -m "Added new role"
+git push -u origin master
+exit
