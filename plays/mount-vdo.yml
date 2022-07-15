@@ -1,4 +1,0 @@
-- name: mountpoint
-  file: 
-    path: /vdo1
-    state: directory

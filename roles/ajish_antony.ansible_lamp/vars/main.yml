@@ -1,9 +1,0 @@
----
-apache_port: 80
-apache_user: www-data
-apache_group: www-data
-domain_name: "akhil.com"
-httpd_port: 80
-httpd_user: apache
-httpd_group: apache
-root_password: "mysqldb@1234"

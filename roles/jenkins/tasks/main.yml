@@ -1,6 +1,0 @@
----
-# tasks file for jenkins
-
-- name: using RHEL file
-  include_tasks: centos.yaml
-  when: ansible_distribution == "CentOS"

@@ -1,8 +1,0 @@
----
-- name: test
-  hosts: master
-  tasks:
-  - name: Setting roles to nodes in cluster
-    shell: "kubectl label node  {{ groups['worker'] | join(' ') }}  node-role.kubernetes.io/worker=worker-node;sleep 45"
-
-

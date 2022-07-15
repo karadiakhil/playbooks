@@ -1,4 +1,0 @@
-- name: play ended
-  command: "date"
-  register: end
-

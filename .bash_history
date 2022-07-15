@@ -223,3 +223,22 @@ git add .
 git commit -m "Added new role"
 git push -u origin master
 exit
+git add .
+git commit -m "Added new role"
+git push -u origin master
+exit
+ls lrth
+ls -lrth
+mv deployment.tgz /tmp/
+rm -rf *
+mv /tmp/deployment.tgz /
+ls -lrth
+cd /
+ls -lrth
+mv deployment.tgz /root/
+cd
+pwd
+ls -lrth
+tar -tvf deployment.tgz 
+git push -u origin master
+exit

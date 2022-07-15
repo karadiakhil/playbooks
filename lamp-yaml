@@ -1,5 +1,0 @@
----
-- name: LMAP INSTALL on DRAIN1
-  hosts: master
-  roles: 
-  - ajish_antony.ansible_lamp 

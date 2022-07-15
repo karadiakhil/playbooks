@@ -1,8 +1,0 @@
----
-- name: Deploy ntp
-  hosts: drain,worker
-  become: yes
-  gather_facts: false
-  roles: 
-  - ntp
-
