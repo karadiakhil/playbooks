@@ -248,3 +248,79 @@ git add .
 git commit -m "Added new role"
 git push -u origin master
 exit
+git add .
+git commit -m "Added new role"
+git push -u origin master
+cd /var/lib/jenkins/workspace/Deploy-kubernetes-cluster/
+ls -lrth
+rm -rf *
+ls -lrth
+exit
+vim /var/lib/jenkins/config.xml 
+vi /var/lib/jenkins/config.xml 
+systemctl restart jenkins
+exit
+cat /etc/hosts
+vim /etc/hosts
+vi /etc/hosts
+ip r
+yum -y install spacewalk-setup-postgresql
+yum install -y yum-plugin-tmprepo
+yum install -y spacewalk-repo --tmprepo=https://copr-be.cloud.fedoraproject.org/results/%40spacewalkproject/spacewalk-2.9/epel-7-x86_64/repodata/repomd.xml --nogpg
+reboot
+yum install -y spacewalk-repo --tmprepo=https://copr-be.cloud.fedoraproject.org/results/%40spacewalkproject/spacewalk-2.9/epel-7-x86_64/repodata/repomd.xml --nogpg
+rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+subscription-manager repos --enable rhel-7-server-optional-rpms
+yum install subscription-manager
+subscription-manager repos --enable rhel-7-server-optional-rpms
+yum -y install spacewalk-setup-postgresql
+yum install -y spacewalk-postgresql
+spacewalk-setupCopied!
+spacewalk-setup
+hostnamectl set-hostname jenkins-spacewalk
+spacewalk-setup
+spacewalk-setup --skip-db-install
+/usr/sbin/spacewalk-service status
+iptables -L
+iptables -F
+sestatus `
+sestatus 
+exit
+ip r
+iptables -L
+iptables -F
+systemctl status jenkins
+systemctl start jenkins
+journalctl -xe
+iptables -L
+history 
+systemctl restart jenkins
+journalctl -xe
+ps -ef |grep -i jenkins
+pkill -9 jenkins
+date
+systemctl restart jenkins
+journalctl -xe
+ps -ef |grep -i 8081
+ps -ef |grep -i 8080
+systemctl status spacewalk
+systemctl status space
+java -jar /usr/share/java/jenkins.war --httpPort=8081
+yum install netstat
+systemctl status spacewalk
+yum install sysstat
+yum install net-tools
+netstat -alpnt |grep -i 8080
+netstat -alpnt |grep -i 8081
+ps -ef |grep -i 1001
+pkill -9 1001
+systemctl start jenkins
+reset
+journalctl -xe |less
+vim /etc/sysconfig/jenkins 
+vi /etc/sysconfig/jenkins 
+systemctl restart jenkins
+journalctl -xe
+reboot
+history |grep -i scp
+exit
