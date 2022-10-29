@@ -324,3 +324,86 @@ journalctl -xe
 reboot
 history |grep -i scp
 exit
+history 
+history  |less
+ls -lrth
+pwd
+cd /
+ls -lrth
+mv deployment.tgz /root/
+git push -u origin master
+cd /root/
+git push -u origin master
+git add .
+git commit -m "test"
+git push -u origin master
+rm -rf ssl-build/
+git push -u origin master
+exit
+systemctl status jenkins
+journalctl -xe
+ls -lrth
+systemctl status jenkins
+yum update jenkins
+systemctl restart jenkins
+journalctl -xe
+java -version
+yum update java
+systemctl restart jenkins
+journalctl -xe
+history |grep -i java
+yum install java-11-openjdk-devel
+yum install java-11-openjdk
+ sudo alternatives --config java
+java -version
+systemctl restart jenkins
+ip r
+netstat -alpnt |grep -i 8080
+netstat -alpnt |grep -i 8081
+iptables -l
+iptables -L
+iptables -F
+sestatus 
+git config
+git config --list
+git config 
+git config --list
+git config --global user.name
+git config -e
+cd
+vim .gitconfig 
+git config --global user.name
+git config --list --global 
+git config --global credential.helper store
+git remote -v
+git fetch
+iptables -L
+iptables -F
+systemctl status jenkins
+ip r
+exit
+iptables -L
+iptables -F
+exit
+ls -lrth
+tar -tvf deployment.tgz 
+ls -lrth
+tar -tvf kube-definition.tgz 
+cd
+ls l-rth
+ls -lrth
+find / -name *.tf
+exit
+ll
+ls
+cd deployment.tgz 
+exit
+ls
+mkdir jenkins-pipeline
+ls
+cd jenkins-pipeline/
+vi first-pipeline
+first-pipeline>code
+vi first-pipeline>code
+ssh -tt -o StrictHostKeyChecking=no root@192.168.147.12 "sh /root/Terraform_Scripts/terra.sh"
+exit

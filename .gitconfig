@@ -3,3 +3,5 @@
 	name = karadiakhil
 [push]
 	default = matching
+[credential]
+	helper = store
