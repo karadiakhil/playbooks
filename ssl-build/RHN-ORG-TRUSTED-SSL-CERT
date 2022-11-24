@@ -1,0 +1,93 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number:
+            b4:60:e8:67:3a:42:7c:57
+    Signature Algorithm: sha256WithRSAEncryption
+        Issuer: C=IE, ST=parkwest, L=dublin, O=akhil, OU=IT, CN=jenkins-spacewalk
+        Validity
+            Not Before: Sep  1 19:27:52 2022 GMT
+            Not After : Aug 28 19:27:52 2036 GMT
+        Subject: C=IE, ST=parkwest, L=dublin, O=akhil, OU=IT, CN=jenkins-spacewalk
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                Public-Key: (2048 bit)
+                Modulus:
+                    00:ea:4b:70:1a:c5:18:09:0c:95:99:fb:7c:84:bf:
+                    3a:6e:6e:00:c0:ce:04:e7:ff:ab:97:03:96:4d:f6:
+                    94:aa:7c:a2:c6:ee:d3:d4:a3:a0:c9:4e:c3:c6:42:
+                    8f:19:21:9b:82:9a:be:66:f4:96:be:51:4a:84:80:
+                    bd:52:fd:d8:73:86:06:fd:ac:8e:3c:74:29:23:8d:
+                    3c:2c:0c:74:fe:18:d0:07:df:a3:19:41:e6:59:67:
+                    53:3a:f5:4d:98:33:15:34:ad:cf:bd:8d:28:d5:fe:
+                    f1:aa:c7:7e:24:75:ab:cb:c1:a2:97:9a:d4:24:48:
+                    7b:95:56:b8:17:45:b0:60:2c:65:a9:0f:dc:1c:f6:
+                    c2:9c:19:5c:d1:a5:37:f9:88:89:61:45:d1:80:82:
+                    31:51:e1:fe:e8:21:68:99:b6:e4:74:40:b3:fa:6d:
+                    13:42:4d:69:db:94:c2:5d:bc:f1:92:86:c8:5c:da:
+                    33:52:f5:fd:a2:d3:b6:bf:68:46:2a:f8:fe:a4:f9:
+                    fa:2f:b4:78:6b:3b:64:9a:84:15:ef:c0:5c:bb:13:
+                    8c:08:eb:95:0b:6c:06:1e:19:e5:75:29:49:39:c9:
+                    83:57:da:2a:ef:b4:bd:5c:b9:f5:f1:f0:ba:f1:72:
+                    a4:6a:df:1c:d9:f2:1c:46:dc:2f:51:7d:4b:6b:ed:
+                    f9:9f
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Basic Constraints: 
+                CA:TRUE
+            X509v3 Key Usage: 
+                Digital Signature, Key Encipherment, Certificate Sign
+            X509v3 Extended Key Usage: 
+                TLS Web Server Authentication, TLS Web Client Authentication
+            Netscape Comment: 
+                RHN SSL Tool Generated Certificate
+            X509v3 Subject Key Identifier: 
+                4F:47:AF:8A:4F:49:D2:C5:9A:18:50:9F:11:AE:44:EE:82:20:1E:7D
+            X509v3 Authority Key Identifier: 
+                keyid:4F:47:AF:8A:4F:49:D2:C5:9A:18:50:9F:11:AE:44:EE:82:20:1E:7D
+                DirName:/C=IE/ST=parkwest/L=dublin/O=akhil/OU=IT/CN=jenkins-spacewalk
+                serial:B4:60:E8:67:3A:42:7C:57
+
+    Signature Algorithm: sha256WithRSAEncryption
+         55:e8:2b:6f:d1:40:0c:76:32:c3:11:2d:62:3c:45:29:ff:d2:
+         0a:e7:6e:84:3d:d4:76:2a:63:32:fe:11:e2:e5:47:e7:bf:86:
+         cc:cf:68:18:4b:f4:d9:56:34:d8:84:77:00:95:d0:c4:6c:74:
+         eb:1d:a9:af:02:24:ce:72:d3:8e:c8:c4:04:02:ed:4e:b0:ce:
+         57:e1:75:77:8c:d8:50:0b:d5:b5:35:4b:31:c8:ce:02:a0:98:
+         0d:22:c1:b4:65:f4:36:9c:40:f3:9c:d6:17:a6:44:7e:22:52:
+         06:67:50:d8:42:a1:26:96:a4:29:59:ff:e3:5a:45:6f:79:5d:
+         ab:4a:fc:f1:18:aa:ae:09:11:ac:13:4b:6b:a2:5a:13:79:68:
+         a0:42:f4:b3:7d:be:1c:c9:56:88:e6:bd:06:6e:04:52:66:63:
+         a5:4a:22:a0:48:af:57:b7:67:42:9c:d0:26:4c:c3:c5:a7:1e:
+         10:45:57:a5:13:81:ed:29:4d:14:66:bf:9c:b9:53:f9:ce:b1:
+         fd:ed:c4:e5:f1:d5:3e:12:1a:90:97:b0:ed:91:98:5c:32:f4:
+         59:c9:39:65:7f:70:ac:04:fe:10:b9:41:1a:88:50:ed:2d:7b:
+         eb:98:e6:37:01:01:35:d3:74:d6:30:2c:e3:7d:d8:68:62:c1:
+         69:2d:9f:7a
+-----BEGIN CERTIFICATE-----
+MIIEiDCCA3CgAwIBAgIJALRg6Gc6QnxXMA0GCSqGSIb3DQEBCwUAMGoxCzAJBgNV
+BAYTAklFMREwDwYDVQQIDAhwYXJrd2VzdDEPMA0GA1UEBwwGZHVibGluMQ4wDAYD
+VQQKDAVha2hpbDELMAkGA1UECwwCSVQxGjAYBgNVBAMMEWplbmtpbnMtc3BhY2V3
+YWxrMB4XDTIyMDkwMTE5Mjc1MloXDTM2MDgyODE5Mjc1MlowajELMAkGA1UEBhMC
+SUUxETAPBgNVBAgMCHBhcmt3ZXN0MQ8wDQYDVQQHDAZkdWJsaW4xDjAMBgNVBAoM
+BWFraGlsMQswCQYDVQQLDAJJVDEaMBgGA1UEAwwRamVua2lucy1zcGFjZXdhbGsw
+ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDqS3AaxRgJDJWZ+3yEvzpu
+bgDAzgTn/6uXA5ZN9pSqfKLG7tPUo6DJTsPGQo8ZIZuCmr5m9Ja+UUqEgL1S/dhz
+hgb9rI48dCkjjTwsDHT+GNAH36MZQeZZZ1M69U2YMxU0rc+9jSjV/vGqx34kdavL
+waKXmtQkSHuVVrgXRbBgLGWpD9wc9sKcGVzRpTf5iIlhRdGAgjFR4f7oIWiZtuR0
+QLP6bRNCTWnblMJdvPGShshc2jNS9f2i07a/aEYq+P6k+fovtHhrO2SahBXvwFy7
+E4wI65ULbAYeGeV1KUk5yYNX2irvtL1cufXx8LrxcqRq3xzZ8hxG3C9RfUtr7fmf
+AgMBAAGjggEvMIIBKzAMBgNVHRMEBTADAQH/MAsGA1UdDwQEAwICpDAdBgNVHSUE
+FjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwMQYJYIZIAYb4QgENBCQWIlJITiBTU0wg
+VG9vbCBHZW5lcmF0ZWQgQ2VydGlmaWNhdGUwHQYDVR0OBBYEFE9Hr4pPSdLFmhhQ
+nxGuRO6CIB59MIGcBgNVHSMEgZQwgZGAFE9Hr4pPSdLFmhhQnxGuRO6CIB59oW6k
+bDBqMQswCQYDVQQGEwJJRTERMA8GA1UECAwIcGFya3dlc3QxDzANBgNVBAcMBmR1
+YmxpbjEOMAwGA1UECgwFYWtoaWwxCzAJBgNVBAsMAklUMRowGAYDVQQDDBFqZW5r
+aW5zLXNwYWNld2Fsa4IJALRg6Gc6QnxXMA0GCSqGSIb3DQEBCwUAA4IBAQBV6Ctv
+0UAMdjLDES1iPEUp/9IK526EPdR2KmMy/hHi5Ufnv4bMz2gYS/TZVjTYhHcAldDE
+bHTrHamvAiTOctOOyMQEAu1OsM5X4XV3jNhQC9W1NUsxyM4CoJgNIsG0ZfQ2nEDz
+nNYXpkR+IlIGZ1DYQqEmlqQpWf/jWkVveV2rSvzxGKquCRGsE0troloTeWigQvSz
+fb4cyVaI5r0GbgRSZmOlSiKgSK9Xt2dCnNAmTMPFpx4QRVelE4HtKU0UZr+cuVP5
+zrH97cTl8dU+EhqQl7DtkZhcMvRZyTllf3CsBP4QuUEaiFDtLXvrmOY3AQE103TW
+MCzjfdhoYsFpLZ96
+-----END CERTIFICATE-----
